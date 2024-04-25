@@ -60,5 +60,3 @@ alarmsys.start_timecheck()
 alarmsys.set_alarm('09:10', playlist_uri)
 print(alarmsys.get_alarm())
 alarmsys.start_timecheck()
-
-#https://open.spotify.com/playlist/230kXxkxNUviyASkzwiW61?si=755b5caac2ba4953
