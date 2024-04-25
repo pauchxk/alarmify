@@ -38,17 +38,27 @@ class Schedule:
     #start time check loop#
     def start_timecheck(self):
         while True:
-            print('Checking time...')
-            schedule.run_pending()
-            time.sleep(30)
+            try:
+                print('Checking time... (Ctrl+C to stop)')
+                schedule.run_pending()
+                time.sleep(30)
+            except KeyboardInterrupt:
+                print('Stopping...')
+                break
 
 
 #testing#
-alarm_time = '15:50'
-playlist_uri = 'spotify:playlist:1U3QinJxrVEyirGUYUt7Pp'
+alarm_time = '09:05'
+playlist_uri = 'spotify:playlist:230kXxkxNUviyASkzwiW61'
 backend = SpotifyPlayback()
 alarmsys = Schedule(backend)
 alarmsys.set_alarm(alarm_time, playlist_uri)
-alarmsys.get_alarm()
-alarmsys.get_playlist()
+print(alarmsys.get_alarm())
+print(alarmsys.get_playlist())
 alarmsys.start_timecheck()
+#on breaking loop, change alarm time - proof of concept#
+alarmsys.set_alarm('09:10', playlist_uri)
+print(alarmsys.get_alarm())
+alarmsys.start_timecheck()
+
+#https://open.spotify.com/playlist/230kXxkxNUviyASkzwiW61?si=755b5caac2ba4953
