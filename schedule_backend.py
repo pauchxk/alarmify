@@ -2,6 +2,7 @@
 from spotify_playback import SpotifyPlayback
 import schedule
 import time
+import os
 
 
 class Schedule:
@@ -48,10 +49,17 @@ class Schedule:
 
 
 #testing#
-alarm_time = '09:05'
-playlist_uri = 'spotify:playlist:230kXxkxNUviyASkzwiW61'
+current_directory = os.getcwd()
+target_directory = "Python/Projects/alarmify/"
+os.chdir(target_directory)
+
+with open("alarmify_preferences.txt","r") as file:
+    alarm_time = file.readline().strip('\n')
+    playlist_uri = file.readline().strip('\n')
+
 backend = SpotifyPlayback()
 alarmsys = Schedule(backend)
+
 alarmsys.set_alarm(alarm_time, playlist_uri)
 print(alarmsys.get_alarm())
 print(alarmsys.get_playlist())
