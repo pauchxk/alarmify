@@ -2,6 +2,8 @@
 import os
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
+import AppOpener
+import time
 
 
 class SpotifyPlayback:
@@ -16,6 +18,9 @@ class SpotifyPlayback:
 
     #select device and start playback#
     def play_playlist(self, playlist_uri):
+        AppOpener.open("spotify", throw_error=True)
+        time.sleep(5)
+
         try:
             devices = self.sp.devices()
 

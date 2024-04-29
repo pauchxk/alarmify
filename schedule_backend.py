@@ -65,6 +65,6 @@ print(alarmsys.get_alarm())
 print(alarmsys.get_playlist())
 alarmsys.start_timecheck()
 #on breaking loop, change alarm time - proof of concept#
-alarmsys.set_alarm('09:10', playlist_uri)
+alarmsys.set_alarm('15:39', playlist_uri)
 print(alarmsys.get_alarm())
 alarmsys.start_timecheck()
