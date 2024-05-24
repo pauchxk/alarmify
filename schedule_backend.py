@@ -29,7 +29,7 @@ class Schedule:
     #return current alarm#
     def get_alarm(self):
         return self.alarm_time
-
+    
     
     #return current playlist URI#
     def get_playlist(self):
@@ -39,17 +39,18 @@ class Schedule:
     #start time check loop#
     def start_timecheck(self):
         while True:
+
             try:
                 print('Checking time... (Ctrl+C to stop)')
                 schedule.run_pending()
                 time.sleep(30)
+                
             except KeyboardInterrupt:
                 print('Stopping...')
                 break
 
 
 #testing#
-current_directory = os.getcwd()
 target_directory = "Python/Projects/alarmify/"
 os.chdir(target_directory)
 
@@ -61,6 +62,4 @@ backend = SpotifyPlayback()
 alarmsys = Schedule(backend)
 
 alarmsys.set_alarm(alarm_time, playlist_uri)
-print(alarmsys.get_alarm())
-print(alarmsys.get_playlist())
 alarmsys.start_timecheck()
