@@ -18,16 +18,17 @@ class Schedule:
 
     def get_alarm(self):
         return self.alarm_time
-
     def get_playlist(self):
         return self.playlist_uri
 
     def start_timecheck(self):
         while True:
+
             try:
                 print('Checking time... (Ctrl+C to stop)')
                 schedule.run_pending()
                 time.sleep(30)
+                
             except KeyboardInterrupt:
                 print('Stopping...')
                 break
