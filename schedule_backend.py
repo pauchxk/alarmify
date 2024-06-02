@@ -18,6 +18,7 @@ class Schedule:
 
     def get_alarm(self):
         return self.alarm_time
+        
     def get_playlist(self):
         return self.playlist_uri
 
